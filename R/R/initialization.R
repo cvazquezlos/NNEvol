@@ -11,8 +11,8 @@ GRAMMAR <- list(
 initialization <- function(population.size, id.start, seed) {
   set.seed(seed)
 
-  population.architectures <- GrammarRandomExpression(CreateGrammar(GRAMMAR),
-                                                      population.size)
+  population.architectures <- gramEvol::GrammarRandomExpression(gramEvol::CreateGrammar(GRAMMAR),
+                                                                population.size)
   population.individuals <- data.frame(id = rep(NA, population.size),
                                        architecture = rep(NA, population.size),
                                        evaluated = rep(NA, population.size),
