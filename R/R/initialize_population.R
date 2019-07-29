@@ -22,21 +22,15 @@ initialization <- function(population.size, id.start, seed) {
                                        stringsAsFactors = FALSE)
 
   for (i in c(1:length(population.architectures))) {
-    population.individuals[i, ] <- c(id.start, population.architectures[i],
+    population.individuals[i, ] <- c(id.start, clean(population.architectures[i]),
                                      FALSE, NA, NA, NA)
     id.start <- id.start + 1
   }
-  population.individuals <- clean_expressions(population.individuals)
   return(list("population" = population.individuals, "id" = id.start))
 }
 
-clean_expressions <- function(population.individuals) {
-  by(population.individuals, 1:nrow(population.individuals), function(row) {
-    print(row$architecture)
-    row$architecture = toString(gsub("\"", "", toString(row$architecture)))
-    print("---------------------")
-    print(row$architecture)
-    print(":::::::")
-  })
-  return(population.individuals)
+clean <- function(expression) {
+  expression <- gsub("\"", "", toString(expression[[1]]))
+  print(expression)
+  return(expression)
 }
