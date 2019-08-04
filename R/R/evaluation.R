@@ -1,6 +1,6 @@
 library(keras)
 
-evaluation <- function(individual, data, train_mode, input, output) {
+evaluation <- function(individual, data, train_mode, epochs, batch_size) {
   layers <- head(strsplit(individual$architeture, "/")[[1]], -1)
 
   hidden_layers <- numeric(0)
@@ -37,7 +37,17 @@ evaluation <- function(individual, data, train_mode, input, output) {
                              metrics = c("accuracy"))
   }
 
-  history <- model %>% keras::fit(rbind(data[1], data[2]),
-                                  rbind(data[4], data[5]),
-                                  validation_split = 0.25)
+  history <- model %>% keras::fit(rbind(data[0], data[1]),
+                                  rbind(data[3], data[4]), callbacks = list(
+                                  keras::callback_early_stopping(mode = "auto",
+                                  monitor = "val_loss",
+                                  patience = epochs * 0.02,
+                                  verbose = 0)
+                                  ),
+                                  validation_split = 0.25, verbose = 0)
+  score <- model %>% evaluate(data[0], data[3])
+  individual$evaluated <- TRUE
+  individual$loss <- score["loss"][[1]]
+  individual$metric <- score["acc"][[1]]
+  return(individual)
 }

@@ -11,19 +11,19 @@ GRAMMAR <- list(
 initialization <- function(population.size, id.start, seed) {
   set.seed(seed)
 
-  population.architectures <- gramEvol::GrammarRandomExpression(gramEvol::CreateGrammar(GRAMMAR),
-                                                                population.size)
+  population.architectures <- gramEvol::GrammarRandomExpression(
+    gramEvol::CreateGrammar(GRAMMAR), population.size
+  )
   population.individuals <- data.frame(id = rep(NA, population.size),
                                        architecture = rep(NA, population.size),
                                        evaluated = rep(NA, population.size),
                                        loss = rep(NA, population.size),
                                        metric = rep(NA, population.size),
-                                       saved_model = rep(NA, population.size),
                                        stringsAsFactors = FALSE)
 
   for (i in c(1:length(population.architectures))) {
     population.individuals[i, ] <- c(id.start, clean(population.architectures[i]),
-                                     FALSE, NA, NA, NA)
+                                     FALSE, NA, NA)
     id.start <- id.start + 1
   }
   return(list("population" = population.individuals, "id" = id.start))
