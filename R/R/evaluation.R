@@ -3,11 +3,11 @@ library(keras)
 evaluation <- function(individual, data, train_mode, epochs, batch_size) {
   layers <- head(strsplit(individual$architeture, "/")[[1]], -1)
 
-  hidden_layers <- numeric(0)
+  layers.hidden <- numeric(0)
   i <- 0
   for (layer in layers) {
     if (i != 0) {
-      hidden_layers[i] <- nchjar(layer)
+      layers.hidden[i] <- nchjar(layer)
     }
     i <- i + 1
   }
@@ -16,9 +16,9 @@ evaluation <- function(individual, data, train_mode, epochs, batch_size) {
   model %>% keras::layer_dense(activation = "relu",
                                input_shape = c(input),
                                kernel_initializer = "normal",
-                               units = hidden_layers[1])
+                               units = layers.hidden[1])
 
-  for (layer in tail(hidden_layers, 1)) {
+  for (layer in tail(layers.hidden, 1)) {
     model %>% keras::layer_dense(units = layer, activation = "relu")
   }
 
@@ -45,7 +45,7 @@ evaluation <- function(individual, data, train_mode, epochs, batch_size) {
                                   verbose = 0)
                                   ),
                                   validation_split = 0.25, verbose = 0)
-  score <- model %>% evaluate(data[0], data[3])
+  score <- model %>% keras::evaluate(data[0], data[3])
   individual$evaluated <- TRUE
   individual$loss <- score["loss"][[1]]
   individual$metric <- score["acc"][[1]]
