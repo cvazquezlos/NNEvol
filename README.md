@@ -4,7 +4,8 @@ NNEvol
 ======
 
 <!-- badges: start -->
-<!-- badges: end -->
+[![Travis build status](https://travis-ci.com/cvazquezlos/NNEvol.svg?branch=master)](https://travis-ci.org/cvazquezlos/NNEvol) <!-- badges: end -->
+
 The goal of NNEvol is to solve one of the open problems in Machine and Deep Learning that is about "which does the best neural network architecture that fixes a given problem is?". NNEvol uses Grammar-Guided Genetic Programming for solving it.
 
 Installation
