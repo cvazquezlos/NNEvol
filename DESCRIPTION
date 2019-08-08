@@ -1,0 +1,23 @@
+Package: NNEvol
+Type: Package
+Title: A Simple Method to Obtain the Best Neural Network that Fixes a given
+  Problem
+Version: 0.1.0
+Author: Carlos Vázquez Losada <c.vazquezlosada@gmail.com>
+Maintainer: Carlos Vázquez Losada <c.vazquezlosada@gmail.com>
+Description: This package uses Grammar-Guided Genetic Programming approach for
+  looking for the neural network architecture that fixes a given dataset. The
+  larger the dataset is, the longer the function takes to obtain a solution.
+  The user can modify both the number of generations and the size of the 
+  population.
+URL: https://github.com/cvazquezlos/NNEvol
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
+Imports:
+  dplyr,
+  gramEvol,
+  keras,
+  magrittr,
+  utils
