@@ -1,2 +1,41 @@
-# NNEvol
-Both R and Python library/package (respectively) that is used for searching the best neural network that fixes a given problem.
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+NNEvol
+======
+
+<!-- badges: start -->
+<!-- badges: end -->
+The goal of NNEvol is to solve one of the open problems in Machine and Deep Learning that is about "which does the best neural network architecture that fixes a given problem is?". NNEvol uses Grammar-Guided Genetic Programming for solving it.
+
+Installation
+------------
+
+You can install the released version of NNEvol from [CRAN](https://CRAN.R-project.org) with:
+
+``` r
+install.packages("NNEvol")
+```
+
+And the development version from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("cvazquezlos/NNEvol")
+```
+
+Introduction
+------------
+
+This library just has an unique function: **get\_best\_nn**. It receives some parameters:
+
+-   *data*. Is the element that individuals (neural networks) use in the evolution process. The received dataset will be a Dataframe whose inputs are displayed before the outputs, in any order.
+-   *input*. Number of inputs.
+-   *output*. Number of outputs.
+-   *train*. Proportion of the instances within the dataset that are used in the training process (default 0.70).
+-   *validation*. Proportion of the instances within the dataset that are used in the validation process (default 0.20).
+-   *test*. Proportion of the instances within the dataset that are used in the test process (default 0.10). This data is only used when train\_final\_nn is selected. In addition, the three above values (including this) would add 1.
+-   *train\_mode*. Mode of the training process. 0 means multi-class, while 1 means regression. Binary classification could be expressed as a multi-class with n = 2 classes (default 0).
+-   *train\_final\_nn*. If the user wants NNEvol to train the final individual totally. If checked, this options allows you to know which are the metrics of the best neural network selected (default FALSE).
+-   *seed*. Seed that is used in the random processes of the package (default 123).
+-   *population\_size*. Size of the population that participates in the evolution process (default 30). The bigger the number is, the longer the library takes to find a solution.
+-   *genetation\_number*. Number of generations within the evolution process (default 30). The bigger the number is, the longer the library takes to find a solution.

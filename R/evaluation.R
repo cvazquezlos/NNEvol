@@ -54,7 +54,7 @@ evaluation <- function(individual, data, input, output, train_mode, epochs,
                                   batch_size = batch_size, callbacks = list(
                                   keras::callback_early_stopping(mode = "auto",
                                   monitor = "val_loss",
-                                  patience = epochs * 0.20,
+                                  patience = epochs * 0.15,
                                   verbose = 0)
                                   ),
                                   epochs = epochs,

@@ -2,7 +2,7 @@ Package: NNEvol
 Type: Package
 Title: A Simple Method to Obtain the Best Neural Network that Fixes a given
   Problem
-Version: 0.1.0
+Version: 1.0.0
 Author: Carlos Vázquez Losada <c.vazquezlosada@gmail.com>
 Maintainer: Carlos Vázquez Losada <c.vazquezlosada@gmail.com>
 Description: This package uses Grammar-Guided Genetic Programming approach for
