@@ -13,8 +13,15 @@
 #' @param population_size size of the population
 #' @param generation_number number of generations
 #'
+#' @importFrom magrittr "%>%"
+#'
 #' @return List with both architecture and final loss
 #' @export
+#'
+#' @example
+#' raw_dataset <- keras::dataset_boston_housing(test_split = 0.30)
+#' data <- cbind(raw_dataset$test$x, raw_dataset$test$y)
+#' get_best_nn(data, 13, 1, population_size = 10, generation_number = 5)
 get_best_nn <- function(data, input, output, train = 0.70, validation = 0.20,
                         test = 0.10, train_mode = 0, train_final_nn = FALSE,
                         seed = 123, population_size = 30, generation_number = 30) {

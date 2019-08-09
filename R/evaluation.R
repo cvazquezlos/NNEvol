@@ -9,6 +9,8 @@
 #' @param batch_size size of the batch
 #' @param seed seed
 #'
+#' @importFrom magrittr "%>%"
+#'
 #' @return Dataframe which contains the evaluated individual
 evaluation <- function(individual, data, input, output, train_mode, epochs,
                        batch_size, seed) {

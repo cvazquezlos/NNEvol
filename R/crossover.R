@@ -7,6 +7,21 @@
 #' @param id_start last id non-used value
 #'
 #' @return Dataframe which contains two rows, one for each child
+#'
+#' @example
+#' parent1 <- data.frame(id = 1,
+#'                       architecture = "nnn/nn/nnn/n/nnnn",
+#'                       evaluated = TRUE,
+#'                       loss = 0.34275,
+#'                       metric = 0.67329,
+#'                       stringsAsFactors = FALSE)
+#' parent2 <- data.frame(id = 2,
+#'                       architecture = "nnn/nn/n/nnnn",
+#'                       evaluated = TRUE,
+#'                       loss = 0.40167,
+#'                       metric = 0.54719,
+#'                       stringsAsFactors = FALSE)
+#' crossover(parent1, parent2, 3, 4, 3)
 crossover <- function(parent1, parent2, input, output, id_start) {
   add_layers <- function(layers_hidden, input, output) {
     return(paste(strrep("n", input), "/", paste0(layers_hidden, collapse = "/"),
