@@ -7,6 +7,9 @@
 #' @param seed seed
 #'
 #' @return List with both individual and id.
+#'
+#' @example
+#' initialization(30, 3, 4, 1, 123)
 initialization <- function(population_size, input, output, id_start, seed) {
   GRAMMAR <- list(
     S = gramEvol::gsrule("<a><h>/<z>"),
