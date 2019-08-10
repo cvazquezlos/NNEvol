@@ -2,3 +2,6 @@
 
 language: R
 cache: packages
+
+script:
+  - mkdir ~./keras/datasets
