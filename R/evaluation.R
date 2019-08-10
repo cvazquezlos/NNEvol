@@ -10,19 +10,11 @@
 #' @param seed seed
 #'
 #' @importFrom magrittr "%>%"
+#' @keywords internal
+#' @noRd
 #'
 #' @return Dataframe which contains the evaluated individual
 #'
-#' @example
-#' individual <- data.frame(id = 1,
-#'                          architecture = "nnn/nn/nnn/n/nnnn",
-#'                          evaluated = TRUE,
-#'                          loss = 0.34275,
-#'                          metric = 0.67329,
-#'                          stringsAsFactors = FALSE)
-#' raw_dataset <- keras::dataset_boston_housing(test_split = 0.30)
-#' data <- cbind(raw_dataset$test$x, raw_dataset$test$y)
-#' evaluation(individual, data, 13, 1, 1, 100, 64, 123)
 evaluation <- function(individual, data, input, output, train_mode, epochs,
                        batch_size, seed) {
   architecture <- individual$architecture
