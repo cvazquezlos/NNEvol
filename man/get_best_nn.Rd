@@ -40,9 +40,9 @@ Calculates the best neural network architecture that fixes a given problem
 }
 \examples{
 {
-  raw_dataset <- keras::dataset_boston_housing(test_split = 0.30)
-  data <- cbind(raw_dataset$test$x, raw_dataset$test$y)
-  get_best_nn(data, 13, 1, train_mode = 1, population_size = 5,
+  data <- data.frame(X1 = c(1:10), X2 = c(11:20), X3 = c(1:10), Y1 = c(0:9),
+                     stringsAsFactors = FALSE)
+  get_best_nn(data, 3, 1, train_mode = 1, population_size = 5,
               generation_number = 2)
 }
 
