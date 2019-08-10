@@ -20,3 +20,5 @@ Imports:
   keras,
   magrittr,
   utils
+Suggests: 
+    covr

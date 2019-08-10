@@ -71,4 +71,7 @@ before_script:
   - python3 -m pip install --upgrade --ignore-installed --user travis virtualenv
   - R CMD INSTALL .
   - R -e 'tensorflow::install_tensorflow(version = Sys.getenv("TENSORFLOW_VERSION"), extra_packages="IPython")'
-  - R -e 'tensorflow::tf_config()'
+  - R -e 'tensorflow::tf_config()'ç
+
+after_success:
+    - Rscript -e 'covr::codecov()'
