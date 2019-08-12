@@ -17,6 +17,8 @@
 #'
 evaluation <- function(individual, data, input, output, train_mode, epochs,
                        batch_size, seed) {
+  set.seed(seed)
+  keras::use_session_with_seed(seed)
   architecture <- individual$architecture
   layers <- utils::head(strsplit(architecture, "/")[[1]], -1)
   layers_hidden <- numeric(0)
@@ -35,7 +37,9 @@ evaluation <- function(individual, data, input, output, train_mode, epochs,
                                  initializer_glorot_uniform(seed))
 
   for (layer in layers_hidden) {
-    model %>% keras::layer_dense(units = layer, activation = "relu")
+    model %>% keras::layer_dense(units = layer, activation = "relu",
+                                 kernel_initializer = keras::
+                                   initializer_glorot_uniform(seed))
   }
 
   if (train_mode == 0) { # Multi-class.

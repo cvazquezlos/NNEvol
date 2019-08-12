@@ -8,7 +8,8 @@
 #'
 #' @return Dataframe with children_number rows, each one of a child
 #'
-selection <- function(population, children_number) {
+selection <- function(population, children_number, seed) {
+  set.seed(seed)
   matting_pool <- data.frame()
   if (children_number %% 2 == 0) {
     term <- 2

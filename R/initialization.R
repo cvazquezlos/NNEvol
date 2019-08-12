@@ -12,6 +12,7 @@
 #' @return List with both individual and id.
 #'
 initialization <- function(population_size, input, output, id_start, seed) {
+  set.seed(seed)
   GRAMMAR <- list(
     S = gramEvol::gsrule("<a><h>/<z>"),
     a = gramEvol::grule(input),
@@ -28,7 +29,6 @@ initialization <- function(population_size, input, output, id_start, seed) {
 
   layers_input <- paste(unlist(rep("n", input)), collapse = "")
   layers_output <- paste(unlist(rep("n", output)), collapse = "")
-  set.seed(seed)
 
   population_architectures <- gramEvol::GrammarRandomExpression(
     gramEvol::CreateGrammar(GRAMMAR), population_size

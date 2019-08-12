@@ -67,9 +67,10 @@ get_best_nn <- function(data, input, output, train = 0.70, validation = 0.20,
                                   data, input, output, train_mode,
                                   epochs, 32, seed)
   }
+  keras::use_session_with_seed(seed)
   for (generation in c(1:generation_number)) {
     keras::k_clear_session()
-    matting_pool <- selection(population, children_number)
+    matting_pool <- selection(population, children_number, seed)
     children <- data.frame(id = integer(), architecture = character(),
                            evaluated = logical(), loss = numeric(),
                            metric = numeric(), stringsAsFactors = FALSE)
@@ -87,6 +88,7 @@ get_best_nn <- function(data, input, output, train = 0.70, validation = 0.20,
     population <- replacement(rbind(population, children), population_size)
   }
   ordered.population <- population[order(unlist(population$loss)), ]
+  print(ordered.population)
   individual_best <- ordered.population[1, ]
   if (train_final_nn) {
     if (n < 200) {
