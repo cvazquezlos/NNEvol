@@ -88,7 +88,6 @@ get_best_nn <- function(data, input, output, train = 0.70, validation = 0.20,
     population <- replacement(rbind(population, children), population_size)
   }
   ordered.population <- population[order(unlist(population$loss)), ]
-  print(ordered.population)
   individual_best <- ordered.population[1, ]
   if (train_final_nn) {
     if (n < 200) {
