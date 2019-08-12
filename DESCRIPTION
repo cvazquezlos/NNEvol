@@ -21,4 +21,5 @@ Imports:
     magrittr,
     utils
 Suggests: 
-    covr
+    covr,
+    testthat
