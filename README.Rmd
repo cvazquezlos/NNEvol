@@ -16,7 +16,6 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 [![Travis build status](https://travis-ci.com/cvazquezlos/NNEvol.svg?branch=master)](https://travis-ci.org/cvazquezlos/NNEvol)
-[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/cvazquezlos/NNEvol?branch=master&svg=true)](https://ci.appveyor.com/project/cvazquezlos/NNEvol)
 [![Codecov test coverage](https://codecov.io/gh/cvazquezlos/NNEvol/branch/master/graph/badge.svg)](https://codecov.io/gh/cvazquezlos/NNEvol?branch=master)
 <!-- badges: end -->
 
