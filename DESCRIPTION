@@ -19,6 +19,7 @@ Imports:
     gramEvol,
     keras,
     magrittr,
+    tensorflow,
     utils
 Suggests: 
     covr,
