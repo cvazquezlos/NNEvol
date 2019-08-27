@@ -17,6 +17,8 @@ You can install the released version of NNEvol from [CRAN](https://CRAN.R-projec
 install.packages("NNEvol")
 ```
 
+Not  working actually...
+
 And the development version from [GitHub](https://github.com/) with:
 
 ``` r
